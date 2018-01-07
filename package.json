@@ -1,0 +1,32 @@
+{
+  "name": "yons",
+  "description": "An atomic CSS library with glamor under the hood",
+  "license": "MIT",
+  "version": "1.0.0",
+  "main": "lib",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib",
+    "_util.js",
+    "colors.js",
+    "breakpoints.js",
+    "zindex.js"
+  ],
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "rimraf lib && babel src -d lib"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "rimraf": "^2.6.1"
+  },
+  "peerDependencies": {
+    "glamor": "^2.20.25"
+  },
+  "dependencies": {
+    "glamor": "^2.20.40"
+  }
+}
