@@ -1,4 +1,3 @@
-import { css } from 'glamor';
 import b from './breakpoints';
 
 export const rem = (n) => `${n}rem`;

@@ -36,7 +36,8 @@ import widths from './widths';
 import wordBreak from './word-break';
 import zindex from './zindex';
 
-export default {
+const yons = {
+  ...normalize,
   ...borderColors,
   ...borderRadius,
   ...borderWidths,
@@ -54,7 +55,6 @@ export default {
   ...letterSpacing,
   ...lineHeight,
   ...lists,
-  ...normalize,
   ...overflow,
   ...pointerEvents,
   ...position,
@@ -73,3 +73,48 @@ export default {
   ...wordBreak,
   ...zindex,
 };
+
+const toStringArray = (acc, name) => {
+  if (Array.isArray(name)) {
+    return [...acc, ...name];
+  }
+  if (typeof name === 'string') {
+    if (name.split(' ').length) {
+      return [...acc, ...name.split(' ')];
+    }
+
+    return [...acc, name];
+  }
+
+  throw new Error(
+    `yons: Unsupported argument. You passed "${JSON.stringify(name)}"`
+  );
+};
+
+const toYons = name => {
+  if (name && !yons[name]) {
+    throw new Error(`yons: No rule exists for "${name}"`);
+  }
+  return yons[name].toString();
+};
+
+const uniq = (set, name, i, arr) => {
+  set.add(name);
+  if (i === arr.length - 1) {
+    return Array.from(set);
+  }
+  return set;
+};
+
+const yon = (...classnames) =>
+  classnames
+    .reduce(toStringArray, [])
+    .map(toYons)
+    .reduce(uniq, new Set())
+    .join(' ');
+
+export default yon;
+
+// y('mla mra mda', x ? 123, ['123','456', x ? 'y'])
+// Support non-defined
+//
