@@ -2,7 +2,7 @@
   "name": "yons",
   "description": "An atomic CSS library with glamor under the hood",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "main": "lib",
   "files": [
     "LICENSE",
