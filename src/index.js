@@ -121,14 +121,12 @@ export const defineColor = (key, color) => {
   })
 }
 
+// y('mla mra mda', x ? 123, ['123','456', x ? 'y'])
+// Support non-defined
+export const yon = (...classnames) =>
   classnames
     .reduce(toStringArray, [])
     .map(toYons)
     .reduce(uniq, new Set())
     .join(' ');
 
-export default yon;
-
-// y('mla mra mda', x ? 123, ['123','456', x ? 'y'])
-// Support non-defined
-//
