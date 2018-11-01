@@ -111,10 +111,10 @@ const uniq = (set, name, i, arr) => {
 
 export const defineColor = (key, color) => {
   [
-    [`fg_${key}`, css({ color: color })];
-    [`hover_fg_${key}`, hover({ color: color })];
-    [`bg_${key}`, css({ backgroundColor: color })];
-    [`hover_bg_${key}`, hover({ backgroundColor: color })];
+    [`fg_${key}`, css({ color: color })],
+    [`hover_fg_${key}`, hover({ color: color })],
+    [`bg_${key}`, css({ backgroundColor: color })],
+    [`hover_bg_${key}`, hover({ backgroundColor: color })],
     [`b_${key}`, css({ borderColor: color }])
   ].forEach((k, v) => {
     yons[k] = v;
