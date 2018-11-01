@@ -116,7 +116,7 @@ export const defineColor = (key, color) => {
     [`bg_${key}`, css({ backgroundColor: color })],
     [`hover_bg_${key}`, hover({ backgroundColor: color })],
     [`b_${key}`, css({ borderColor: color })]
-  ].forEach((k, v) => {
+  ].forEach(([k, v]) => {
     yons[k] = v;
   })
 }
@@ -129,4 +129,3 @@ export const yon = (...classnames) =>
     .map(toYons)
     .reduce(uniq, new Set())
     .join(' ');
-
