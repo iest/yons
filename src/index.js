@@ -92,6 +92,7 @@ const toStringArray = (acc, name) => {
 };
 
 const toYons = name => {
+  if (!name) return;
   if (name && !yons[name]) {
     throw new Error(`yons: No rule exists for "${name}"`);
   }
