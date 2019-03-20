@@ -109,6 +109,9 @@ const uniq = (set, name, i, arr) => {
   return set;
 };
 
+export const define = (key, values) => {
+  yons[key] = css(values)
+}
 export const defineColor = (key, color) => {
   [
     [`fg_${key}`, css({ color: color })],
